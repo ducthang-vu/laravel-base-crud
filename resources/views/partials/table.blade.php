@@ -1,4 +1,4 @@
-<table class="table table-hover col-md-6 offset-md-3">
+<table class="table table-hover col-md-10 m-auto">
     <thead>
         <tr>
             <th scope="col">Surname</th>

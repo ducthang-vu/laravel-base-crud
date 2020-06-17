@@ -9,12 +9,12 @@
 </head>
 <body>
     <header>
-        <nav class="navbar">
+        <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
             <div class="nav-brand">
                 Classes
             </div>
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item"><a class="nav-link" href="{{ route('home') }}">Student</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('home') }}">Home</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('students.create') }}">Add new student</a></li>
                 <li class="nav-item"></li>
                 <li class="nav-item"></li>
