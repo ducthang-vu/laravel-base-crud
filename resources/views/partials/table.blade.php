@@ -6,6 +6,9 @@
             <th scope="col">Gender</th>
             <th scope="col">Birth year</th>
             <th scope="col">Class #</th>
+            <th scope="col"><th>
+            <th scope="col"></th>
+            <th scope="col"></th>
         </tr>
     </thead>
 
@@ -17,6 +20,9 @@
                 <td>{{ $student->gender }}</td>
                 <td>{{ $student->birth_year}}</td>
                 <td>{{ $student->class }}</td>
+                <td><a href="" class="btn btn-primary">Show</a></td>
+                <td><a href="" class="btn btn-warning">Update</a></td>
+                <td><a href="" class="btn btn-danger">Delete</a></td>
             </tr>
         @endforeach
     </tbody>

@@ -14,8 +14,8 @@
                 Classes
             </div>
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item"><a class="nav-link" href="">Student</a></li>
-                <li class="nav-item"><a class="nav-link" href=""></a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('home') }}">Student</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('students.create') }}">Add new student</a></li>
                 <li class="nav-item"></li>
                 <li class="nav-item"></li>
                 <li class="nav-item"></li>
