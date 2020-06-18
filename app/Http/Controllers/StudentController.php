@@ -114,11 +114,12 @@ class StudentController extends Controller
 
     //custom validation method
     private function validationRules() {
+
         return [
             'surname' => 'required',
             'name' => 'required',
             'gender' => 'required|in:m,f,M,F',
-            'birth_year' => 'required|after:1900|before_or_equal:'.(date('Y')-13),
+            'birth_year' => 'required|gt:1900|before_or_equal:'.(date('Y')-13),
         ];
     }
 
