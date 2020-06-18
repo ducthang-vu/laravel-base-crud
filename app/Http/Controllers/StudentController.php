@@ -51,7 +51,7 @@ class StudentController extends Controller
 
         if ($saved){
             $idStudentNew = Student::find($newStudent->id);
-            return redirect()->route('students.show', $idStudentNew);
+            return redirect()->route('students.show', $idStudentNew)->with('created', true);
         }
     }
 
@@ -92,7 +92,7 @@ class StudentController extends Controller
         $updated = $student->update($data);
 
         if ($updated) {
-            return redirect()->route('students.show', $student); //anche $student->id
+            return redirect()->route('students.show', $student)->with('updated', true); //anche $student->id
         }
     }
 

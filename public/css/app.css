@@ -10932,6 +10932,8 @@ a.text-dark:focus {
   opacity: 0;
   -webkit-animation: invisible 4s;
           animation: invisible 4s;
+  z-index: 1031;
+  /*colpa di bootstrap!!!*/
 }
 
 @-webkit-keyframes invisible {
