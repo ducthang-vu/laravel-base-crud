@@ -1,0 +1,14 @@
+.transition-invisible {
+    opacity: 0;
+    animation: invisible 4s;
+}
+
+@keyframes invisible {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}

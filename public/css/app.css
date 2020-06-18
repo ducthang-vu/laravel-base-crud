@@ -10928,3 +10928,33 @@ a.text-dark:focus {
   }
 }
 
+.transition-invisible {
+  opacity: 0;
+  -webkit-animation: invisible 4s;
+          animation: invisible 4s;
+}
+
+@-webkit-keyframes invisible {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes invisible {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+.card li {
+  list-style: none;
+}
+

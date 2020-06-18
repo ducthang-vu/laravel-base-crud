@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Student;
+// import for didactical use
+use Illuminate\validation\Rule;
 
 class StudentController extends Controller
 {
@@ -35,12 +37,7 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'surname' => 'required',
-            'name' => 'required',
-            'gender' => 'required|max:1',
-            'birth_year' => 'required',
-        ]);
+        $request->validate($this->validationRules());
 
         $data = $request->all();
 
@@ -75,9 +72,10 @@ class StudentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Student $student)
     {
-        //
+        //$students = Student::find('$id'); dietro le quinte
+        return view('students.edit', compact('student'));
     }
 
     /**
@@ -87,9 +85,15 @@ class StudentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Student $student)
     {
-        //
+        $data = $request->all();
+        $request->validate($this->validationRules());
+        $updated = $student->update($data);
+
+        if ($updated) {
+            return redirect()->route('students.show', $student); //anche $student->id
+        }
     }
 
     /**
@@ -98,8 +102,36 @@ class StudentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Student $student)
     {
-        //
+        $ref = [$student->surname, $student->name];
+        $deleted = $student->delete();
+
+        if ($deleted) {
+            return redirect()->route('home')->with('deleted', $ref);
+        }
     }
+
+    //custom validation method
+    private function validationRules() {
+        return [
+            'surname' => 'required',
+            'name' => 'required',
+            'gender' => 'required|in:m,f,M,F',
+            'birth_year' => 'required|after:1900|before_or_equal:'.(date('Y')-13),
+        ];
+    }
+
+    /*
+    private function validationRules($id = null)
+    return[
+            'name' => [
+                'required,
+                'max:20'
+                Rule::unique('classrooms')->ignore('$id)
+            ],
+            'description'=>'required'
+        ];
+
+    */
 }
