@@ -20,7 +20,9 @@
                 <td>{{ $student->gender }}</td>
                 <td>{{ $student->birth_year}}</td>
                 <td>{{ $student->class }}</td>
-                <td><a href="" class="btn btn-primary">Show</a></td>
+                <td>
+                    <a href="{{ route('students.show', $student->id) }}" class="btn btn-primary">Show</a>
+                </td>
                 <td><a href="" class="btn btn-warning">Update</a></td>
                 <td><a href="" class="btn btn-danger">Delete</a></td>
             </tr>
