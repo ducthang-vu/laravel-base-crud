@@ -12,13 +12,13 @@
         <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
             <div class="container">
                 <div class="nav-brand">
-                    Classes
+                    School database
                 </div>
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item"><a class="nav-link" href="{{ route('home') }}">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('students.index') }}">Students</a></li>
                     <li class="nav-item"><a href="{{ route('rooms.index') }}" class="nav-link">Rooms</a></li>
-                    @if(preg_match( '/^students.*/', Route::currentRouteName() ) )
+                    @if(preg_match( '/^students.*/', Route::currentRouteName() ))
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('students.create') }}">Add new student</a>
                         </li>
