@@ -3,20 +3,21 @@
 @section('main-content')
     @if (session('updated'))
         <div class="alert alert-success position-absolute container p-3 transition-invisible">
-            <strong>{{ $student->surname }} {{ $student->name }}</strong> successfully updated.
+            <strong>Room #{{ $room->id }}</strong> successfully updated.
         </div>
     @endif
     @if (session('created'))
         <div class="alert alert-success position-absolute container p-3 transition-invisible">
-            <strong>{{ $student->surname }} {{ $student->name }}</strong> successfully created.
+            <strong>Room # {{ $room->id }}</strong> successfully created.
         </div>
     @endif
 
     <h2 class="p-5 text-center">Details</h2>
 
-    @include('components.tableStudents', ['students' => [$student]])
+    @include('components.tableRooms', ['rooms' => [$room]])
 
     <div class="text-center">
-        <a href="{{ route('students.index') }}" class="btn btn-primary m-3">Back to Students page</a>
+        <a href="{{ route('rooms.index') }}" class="btn btn-primary m-3">Back to Rooms page</a>
     </div>
 @endsection
+

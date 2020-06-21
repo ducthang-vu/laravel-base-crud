@@ -20,7 +20,7 @@
                 <td>{{ $student->gender }}</td>
                 <td>{{ $student->birth_year}}</td>
                 <td>{{ $student->class }}</td>
-                @unless (Route::currentRouteName() == 'students.show')
+                @unless (Route::currentRouteNamed('students.show'))
                     <td>
                         <a href="{{ route('students.show', $student->id) }}" class="btn btn-primary">Show</a>
                     </td>

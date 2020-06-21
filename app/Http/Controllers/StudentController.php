@@ -16,7 +16,8 @@ class StudentController extends Controller
      */
     public function index()
     {
-        //
+        $allStudents = Student::all();
+        return view('students.index', compact('allStudents'));
     }
 
     /**
@@ -108,7 +109,7 @@ class StudentController extends Controller
         $deleted = $student->delete();
 
         if ($deleted) {
-            return redirect()->route('home')->with('deleted', $ref);
+            return redirect()->route('students.index')->with('deleted', $ref);
         }
     }
 
